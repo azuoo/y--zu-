@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>التسجيل</title>
+</head>
+<body>
+  <h2>تسجيل مستخدم جديد</h2>
+  <form id="registerForm">
+    <input type="text" id="username" placeholder="اسم المستخدم" required><br>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required><br>
+    <button type="submit">تسجيل</button>
+  </form>
+
+  <div id="referralLink" style="display:none;">
+    <p>رابط إحالتك:</p>
+    <input type="text" id="myReferral" readonly>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value;
+      const email = document.getElementById("email").value;
+      const referred_by = new URLSearchParams(window.location.search).get("ref") || "";
+
+      fetch("https://script.google.com/macros/s/AKfycbwql552H10sf7M38aP2kPyDFVI0DbSXw8atB2EJnxoGOve7harsfHT53W3M2P42h_V8EQ/exec", {
+        method: "POST",
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          referred_by: referred_by
+        }),
+        contentType: "application/json"
+      }).then(response => {
+        const code = username + Math.floor(Math.random() * 1000);
+        const link = https://yourwebsite.com?ref=${code};
+
+        document.getElementById("myReferral").value = link;
+        document.getElementById("referralLink").style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>

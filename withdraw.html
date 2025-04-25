@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>سحب الأرباح</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .withdraw-container {
+      background-color: #1e2a38;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00ffcc;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #00cc99;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #009977;
+    }
+  </style>
+</head>
+<body>
+  <div class="withdraw-container">
+    <h2>سحب الأرباح</h2>
+
+    <form id="withdrawForm">
+      <label for="amount">المبلغ المطلوب سحبه (دولار):</label>
+      <input type="number" id="amount" name="amount" min="1" required>
+      <label for="wallet">عنوان المحفظة:</label>
+      <input type="text" id="wallet" name="wallet" placeholder="أدخل عنوان محفضتك trc20 " required>
+      <input type="submit" value="طلب السحب">
+    </form>
+    <footer>
+      <button onclick="window.location.href='home.html'">⬅️ ينسحب</button>
+  </footer>
+  </div>
+
+  <script>
+    document.getElementById('withdrawForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // يمنع إرسال النموذج الحقيقي
+      alert('المبلغ غير كافي!');
+    });
+  </script>
+</body>
+</html>

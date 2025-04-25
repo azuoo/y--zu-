@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الإحالات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+        .referral-link {
+            margin: 20px 0;
+        }
+
+        .referral-link input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .referral-link button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .referral-link button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>نظام الإحالات</h1>
+        <p>مرحبا بك في صفحة الإحالات! قم بمشاركة الرابط التالي مع أصدقائك للحصول على مكافآت.</p>
+        
+        <div class="referral-link">
+            <label for="referralCode">رابط إحالتك:</label>
+            <input type="text" id="referralCode" value="hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh" readonly>
+            <button onclick="copyReferralCode()">نسخ الرابط</button>
+        </div>
+
+        <h2>عدد الإحالات:</h2>
+        <p>عدد الأشخاص الذين سجلوا باستخدام كود الإحالة الخاص بك: <span id="referralCount">0</span></p>
+    </div>
+
+    <script>
+        function copyReferralCode() {
+            var referralInput = document.getElementById('referralCode');
+            referralInput.select();
+            document.execCommand('copy');
+            alert('تم نسخ الرابط بنجاح!');
+        }
+    </script>
+</body>
+</html>
